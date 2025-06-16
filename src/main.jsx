@@ -11,6 +11,8 @@ import Home from './Pages/Home.jsx';
 import Login from './Pages/Login.jsx';
 import Register from './Pages/Register.jsx';
 import AuthProvider from './Pages/AuthProvider.jsx';
+import AllFoods from './Pages/AllFoods.jsx';
+import SingleFood from './Pages/SingleFood.jsx';
 
 
 const router = createBrowserRouter([
@@ -20,7 +22,9 @@ const router = createBrowserRouter([
     children : [
       {path: '/', Component: Home },
       {path:'/login', Component: Login},
-      {path:'/register', Component: Register}
+      {path:'/register', Component: Register},
+      {path:'/allFoods', Component:AllFoods},
+      {path: '/singleFood/:id', Component: SingleFood}
     ]
   },
 ]);

@@ -36,7 +36,7 @@ const NavBar = () => {
   const menuItems = (
     <>
       <li><Link to="/">Home</Link></li>
-      <li><Link to="/allfoods">All Foods</Link></li>
+      <li><Link to="/allFoods">All Foods</Link></li>
       <li><Link to="/gallery">Gallery</Link></li>
       {user && (
         <>
@@ -55,7 +55,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar bg-white px-4 py-3 max-w-7xl mx-auto rounded-2xl shadow sticky top-0 z-50">
+    <div className="navbar  px-4 py-3 max-w-7xl mx-auto rounded-2xl shadow sticky bg-white/30 backdrop-blur-md border border-white/30 top-0 z-50">
       <div className="flex-1">
         <Link to="/" className="text-2xl font-bold text-red-500">
           🍽️ DineFine
