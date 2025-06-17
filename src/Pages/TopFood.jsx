@@ -9,7 +9,7 @@ const TopFoods = () => {
     fetch('http://localhost:5000/foods')
       .then(res => res.json())
       .then(data => {
-        // Sort descending by purchaseCount and take top 6
+       
         const sorted = data.sort((a, b) => b.purchaseCount - a.purchaseCount);
         setTopFoods(sorted.slice(0, 6));
       })
