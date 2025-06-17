@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Banner = () => {
   return (
     <section
@@ -11,9 +13,11 @@ const Banner = () => {
         <p className="mt-4 text-lg lg:text-xl">
           Delicious food, cozy ambiance, unforgettable experience.
         </p>
+        <Link to='/allFoods'>
         <button className="mt-6 px-6 py-3 bg-white text-black font-semibold rounded-2xl shadow-md transition duration-300">
           Order Now
         </button>
+        </Link>
       </div>
     </section>
   );
