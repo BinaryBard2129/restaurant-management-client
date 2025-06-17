@@ -3,6 +3,7 @@ import Banner from './Banner';
 import TopFoods from './TopFood';
 import Delivery from './delivery';
 import WhyChooseUs from './WhyChooseUs';
+import Footer from './Footer';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
            <Delivery></Delivery>
            <h1 className='text-4xl font-bold text-center mt-8'>Why Choose us?</h1>
            <WhyChooseUs></WhyChooseUs>
+           <Footer></Footer>
         </div>
     );
 };
