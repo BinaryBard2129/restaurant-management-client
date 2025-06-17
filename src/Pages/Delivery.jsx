@@ -6,7 +6,7 @@ const Delivery = () => {
   return (
     <section className="max-w-7xl mx-auto px-6 py-20 bg-yellow-50 rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-12">
       
-      {/* Text Content */}
+      
       <div className="md:w-1/2 text-center md:text-left">
         <h2 className="text-4xl font-extrabold text-yellow-700 mb-6">
           We Have Food Home Delivery Option as Well
