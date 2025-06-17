@@ -16,7 +16,7 @@ const WhyChooseUs = () => {
         />
       </div>
 
-      {/*  Content */}
+     
       <div className="md:w-1/2 text-center md:text-left">
         <h2 className="text-3xl font-bold text-green-700 mb-4">Why Choose Us?</h2>
         <ul className="space-y-3 text-lg text-gray-700">
