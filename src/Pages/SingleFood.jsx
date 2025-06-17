@@ -29,7 +29,7 @@ const SingleFood = () => {
   if (!food) return null;
 
   const handlePurchase = () => {
-    // Navigate to purchase page for this food item, e.g. /purchase/:id
+    //  page for this food item, e.g. /purchase/:id
     navigate(`/purchase/${id}`);
   };
 
