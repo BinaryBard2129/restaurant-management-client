@@ -24,7 +24,7 @@ const MyOrders = () => {
       });
   }, [user]);
 
-  // Delete order handler
+  
   const handleDelete = (orderId) => {
     Swal.fire({
       title: "Are you sure?",
