@@ -6,7 +6,7 @@ const WhyChooseUs = () => {
   return (
     <section className="max-w-6xl mt-3 mx-auto px-6 py-12 bg-white rounded-lg shadow-lg flex flex-col-reverse md:flex-row items-center gap-10">
        
-      {/* Lottie Animation */}
+      
       <div className="md:w-1/2 max-w-md">
         <Lottie 
           animationData={eatImg} 
