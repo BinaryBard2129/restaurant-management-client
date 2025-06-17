@@ -8,7 +8,7 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch orders of logged-in user
+  
   useEffect(() => {
     if (!user?.email) return;
 
