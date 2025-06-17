@@ -40,9 +40,9 @@ const NavBar = () => {
       <li><Link to="/gallery">Gallery</Link></li>
       {user && (
         <>
-          <li><Link to="/myfoods">My Foods</Link></li>
-          <li><Link to="/addfood">Add Food</Link></li>
-          <li><Link to="/myorders">My Orders</Link></li>
+          <li><Link to="/myFood">My Foods</Link></li>
+          <li><Link to="/addFood">Add Food</Link></li>
+          <li><Link to="/myOrders">My Orders</Link></li>
         </>
       )}
       {!user && (

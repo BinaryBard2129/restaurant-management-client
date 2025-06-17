@@ -32,7 +32,7 @@ const TopFoods = () => {
               <p className="text-gray-700 mb-1">Price: ${food.price.toFixed(2)}</p>
               <p className="text-gray-600 mb-3">Purchased: {food.purchaseCount} times</p>
               <button
-                onClick={() => navigate(`/foods/${food._id}`)}
+                onClick={() => navigate(`/singleFood/${food._id}`)}
                 className="btn btn-primary w-full"
               >
                 Details

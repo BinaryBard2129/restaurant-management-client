@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 
 const SingleFood = () => {
   const { id } = useParams();
@@ -56,12 +56,13 @@ const SingleFood = () => {
             <p><strong>Category:</strong> {food.category}</p>
             <p><strong>Purchases:</strong> {food.purchases ?? 0}</p>
           </div>
-          <button
+           <button
             onClick={handlePurchase}
             className="mt-6 px-6 py-3 bg-green-600 text-white rounded hover:bg-green-700 transition"
           >
             Purchase
           </button>
+        
         </div>
       </div>
     </div>

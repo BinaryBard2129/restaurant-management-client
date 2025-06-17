@@ -13,6 +13,11 @@ import Register from './Pages/Register.jsx';
 import AuthProvider from './Pages/AuthProvider.jsx';
 import AllFoods from './Pages/AllFoods.jsx';
 import SingleFood from './Pages/SingleFood.jsx';
+import Purchase from './Pages/Purchase.jsx';
+import Gallery from './Pages/Gallery.jsx';
+import MyOrders from './Pages/MyOrders.jsx';
+import AddFood from './Pages/AddFood.jsx';
+import MyFood from './Pages/MyFood.jsx';
 
 
 const router = createBrowserRouter([
@@ -24,7 +29,12 @@ const router = createBrowserRouter([
       {path:'/login', Component: Login},
       {path:'/register', Component: Register},
       {path:'/allFoods', Component:AllFoods},
-      {path: '/singleFood/:id', Component: SingleFood}
+      {path: '/singleFood/:id', Component: SingleFood},
+      {path:'/purchase/:id', Component: Purchase},
+      {path: '/gallery', Component:Gallery},
+      {path: '/myOrders', Component:MyOrders},
+      {path: '/addFood', Component:AddFood},
+      {path: '/myFood', Component: MyFood}
     ]
   },
 ]);
