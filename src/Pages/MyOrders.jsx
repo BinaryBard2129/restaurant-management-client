@@ -67,7 +67,7 @@ const MyOrders = () => {
             key={order._id}
             className="flex flex-col md:flex-row items-center md:items-start border p-4 rounded shadow"
           >
-            {/* Food Image */}
+           
             {order.foodImage && (
               <img
                 src={order.foodImage}
