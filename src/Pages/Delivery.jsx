@@ -16,7 +16,7 @@ const Delivery = () => {
         </p>
       </div>
       
-      {/* Animation */}
+      
       <div className="md:w-1/2 max-w-lg">
         <Lottie 
           animationData={deliveryAnimation} 
