@@ -29,7 +29,7 @@ const SingleFood = () => {
   if (!food) return null;
 
   const handlePurchase = () => {
-    //  :id
+    
     navigate(`/purchase/${id}`);
   };
 
