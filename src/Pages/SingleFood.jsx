@@ -9,7 +9,7 @@ const SingleFood = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:5000/foods/${id}`)
+    fetch(`https://restaurants-management-server.vercel.app/foods/${id}`)
       .then(res => {
         if (!res.ok) throw new Error('Food not found');
         return res.json();
