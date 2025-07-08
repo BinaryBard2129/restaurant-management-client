@@ -4,16 +4,16 @@ import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
 
 const galleryImages = [
-  { src: '/src/assets/gallery/1.jpg.jpeg' },
-  { src: '/src/assets/gallery/2.jpg.avif' },
-  { src: '/src/assets/gallery/3.jpg.jpeg' },
-  { src: '/src/assets/gallery/4.jpg.webp' },
-  { src: '/src/assets/gallery/52407-chicken-shawarma-VAT-003-4x3-01-3189bab443d14bf282ffcc3b87bcf55a.jpg' },
-  { src: '/src/assets/gallery/AR-268494-BasicAirFryerHotDogs-4x3-49aad2a82d284f8dab6d3c09243eeaea.jpg' },
-  { src: '/src/assets/gallery/7.jpg.jpg' },
-  { src: '/src/assets/gallery/8.jpg.webp' },
-  { src: '/src/assets/gallery/9.jpg.jpg' },
-  { src: '/src/assets/gallery/10.jpg.jpeg' }
+  { src: 'https://i.postimg.cc/6qMYV56X/1-jpg.jpg' },
+  { src: 'https://i.postimg.cc/J7pq20mw/2-jpg.avif' },
+  { src: 'https://i.postimg.cc/L8Lj28d8/3-jpg.jpg' },
+  { src: 'https://i.postimg.cc/prmn72Yx/4-jpg.webp' },
+  { src: 'https://i.postimg.cc/s2KQgBTs/52407-chicken-shawarma-VAT-003-4x3-01-3189bab443d14bf282ffcc3b87bcf55a.jpg' },
+  { src: 'https://i.postimg.cc/6pXf7vfv/AR-268494-Basic-Air-Fryer-Hot-Dogs-4x3-49aad2a82d284f8dab6d3c09243eeaea.jpg' },
+  { src: 'https://i.postimg.cc/TwFrTLPh/7-jpg.jpg' },
+  { src: 'https://i.postimg.cc/qvwyzZ7P/8-jpg.webp' },
+  { src: 'https://i.postimg.cc/2jnq1Xc0/pick-HBu-Vr.jpg' },
+  { src: 'https://i.postimg.cc/mZ99QrDN/10-jpg.jpg' }
 ];
 
 const Gallery = () => {
