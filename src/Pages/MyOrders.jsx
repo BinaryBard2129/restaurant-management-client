@@ -2,13 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 import moment from "moment";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
+
   useEffect(() => {
     if (!user?.email) return;
 
@@ -24,7 +32,6 @@ const MyOrders = () => {
       });
   }, [user]);
 
-  
   const handleDelete = (orderId) => {
     Swal.fire({
       title: "Are you sure?",
@@ -54,9 +61,7 @@ const MyOrders = () => {
   };
 
   if (loading) return <p>Loading your orders...</p>;
-
-  if (orders.length === 0)
-    return <p className="text-center mt-10">No orders found.</p>;
+  if (orders.length === 0) return <p className="text-center mt-10">No orders found.</p>;
 
   return (
     <div className="max-w-4xl mx-auto p-6">
@@ -67,7 +72,6 @@ const MyOrders = () => {
             key={order._id}
             className="flex flex-col md:flex-row items-center md:items-start border p-4 rounded shadow"
           >
-           
             {order.foodImage && (
               <img
                 src={order.foodImage}
@@ -75,7 +79,6 @@ const MyOrders = () => {
                 className="w-24 h-24 object-cover rounded mr-4"
               />
             )}
-
             <div className="flex-grow">
               <h3 className="text-xl font-semibold">{order.foodName}</h3>
               <p>Quantity: {order.quantity}</p>
@@ -84,9 +87,7 @@ const MyOrders = () => {
               <p>Delivery Address: {order.address}</p>
               <p>
                 Ordered on:{" "}
-                {moment(order.createdAt || order.orderDate).format(
-                  "MMMM Do YYYY, h:mm A"
-                )}
+                {moment(order.createdAt || order.orderDate).format("MMMM Do YYYY, h:mm A")}
               </p>
             </div>
             <button

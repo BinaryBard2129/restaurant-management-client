@@ -9,14 +9,21 @@ const MyFoods = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
- useEffect(() => {
-  fetch(`https://restaurants-management-server.vercel.app/my-foods?email=${user?.email}`)
-    .then(res => res.json())
-    .then(data => {
-      setFoods(data);
-      setLoading(false);
-    });
-}, [user?.email]);
+  useEffect(() => {
+    
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+
+    fetch(`https://restaurants-management-server.vercel.app/my-foods?email=${user.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setFoods(data);
+        setLoading(false);
+      });
+  }, [user, navigate]);
+
   const handleDelete = (id) => {
     Swal.fire({
       title: 'Delete this food?',

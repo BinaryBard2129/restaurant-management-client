@@ -1,22 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
-
 import Swal from "sweetalert2";
 import { AuthContext } from "./AuthProvider";
-import { useParams } from "react-router";
-
+import { useNavigate, useParams } from "react-router";
 
 const Purchase = () => {
   const { id } = useParams();
+  const navigate = useNavigate(); 
   const { user } = useContext(AuthContext);
   const [food, setFood] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [address, setAddress] = useState("");
 
   useEffect(() => {
+    
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
     fetch(`https://restaurants-management-server.vercel.app/foods/${id}`)
       .then((res) => res.json())
       .then((data) => setFood(data));
-  }, [id]);
+  }, [id, user, navigate]);
 
   const handlePurchase = (e) => {
     e.preventDefault();

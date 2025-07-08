@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from './AuthProvider';
-import { motion } from "motion/react"
+import { motion } from 'framer-motion'; 
+import { Link, useNavigate } from 'react-router';
 
 const Login = () => {
-    const { login, googleLogin } = useContext(AuthContext);
+  const { login, googleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const Login = () => {
           timer: 2000,
           showConfirmButton: false,
         });
-        navigate("/");
+        navigate("/"); // Redirect to home
       })
       .catch((err) => setError(err.message));
   };
@@ -38,7 +38,7 @@ const Login = () => {
           timer: 2000,
           showConfirmButton: false,
         });
-        navigate("/");
+        navigate("/"); // Redirect to home
       })
       .catch((err) => setError(err.message));
   };
@@ -77,8 +77,9 @@ const Login = () => {
                 Login
               </button>
             </div>
-            <motion.button whileHover={{scale: 1.1}}
-            whileTap={{scale:0.95}}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={handleGoogle}
               type="button"
               className="btn btn-outline mt-2"

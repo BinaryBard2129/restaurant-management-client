@@ -62,7 +62,7 @@ const NavBar = () => {
         </Link>
       </div>
 
-      {/* Mobile Toggle */}
+      
       <div className="lg:hidden">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
@@ -81,12 +81,12 @@ const NavBar = () => {
         </button>
       </div>
 
-      {/* Desktop Menu */}
+      
       <ul className="menu menu-horizontal hidden lg:flex gap-4">
         {menuItems}
       </ul>
 
-      {/* Profile Dropdown */}
+      
       {user && (
         <div className="hidden lg:flex items-center ml-4 relative" ref={dropdownRef}>
           <div
@@ -121,7 +121,7 @@ const NavBar = () => {
         </div>
       )}
 
-      {/* Mobile Menu */}
+      
       {menuOpen && (
         <div className="absolute top-16 right-4 w-64 bg-white shadow-md rounded-lg p-4 lg:hidden z-50">
           <ul className="space-y-2">

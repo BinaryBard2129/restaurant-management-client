@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from './AuthProvider';
-import { Link, useNavigate } from 'react-router';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
-import { motion } from "motion/react"
+import { motion } from 'framer-motion';
+import { Link, useNavigate } from 'react-router';
 
 const Register = () => {
-     const { register, googleLogin } = useContext(AuthContext);
+  const { register, googleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -42,6 +42,7 @@ const Register = () => {
           title: "Registration Successful",
           text: `Welcome, ${name}!`,
           showConfirmButton: false,
+          timer: 2000,
         });
 
         navigate("/");
@@ -109,8 +110,8 @@ const Register = () => {
               </button>
             </div>
             <motion.button
-            whileHover={{scale:1.1}}
-            whileTap={{scale:0.95}}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               onClick={handleGoogle}
               type="button"
               className="btn btn-outline mt-2"

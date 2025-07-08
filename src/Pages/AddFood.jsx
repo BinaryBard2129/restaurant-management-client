@@ -1,10 +1,18 @@
-import React, { useContext } from 'react';
-
+import React, { useContext, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from './AuthProvider';
+import { useNavigate } from 'react-router';
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
