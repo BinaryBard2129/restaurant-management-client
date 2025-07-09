@@ -16,7 +16,7 @@ const MyFoods = () => {
       return;
     }
 
-    fetch(`https://restaurants-management-server.vercel.app/my-foods?email=${user.email}`)
+    fetch(`http://localhost:5000/my-foods?email=${user.email}`)
       .then(res => res.json())
       .then(data => {
         setFoods(data);
@@ -33,7 +33,7 @@ const MyFoods = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://restaurants-management-server.vercel.app/foods/${id}`, {
+        fetch(`http://localhost:5000/foods/${id}`, {
           method: 'DELETE',
         })
           .then(res => res.json())
@@ -74,7 +74,7 @@ const MyFoods = () => {
                 <td>${food.price}</td>
                 <td className="space-x-2">
                   <button onClick={() => navigate(`/updateFood/${food._id}`)} className="btn btn-sm btn-warning">Update</button>
-                  <button onClick={() => handleDelete(food._id)} className="btn btn-sm btn-error">Delete</button>
+                  <button onClick={() => handleDelete(food._id)} className="btn btn-sm btn-error">Delete</button> 
                 </td>
               </tr>
             ))}

@@ -9,7 +9,7 @@ const AllFoods = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://restaurants-management-server.vercel.app/foods')
+    fetch('http://localhost:5000/foods')
       .then(res => res.json())
       .then(data => {
         setFoods(data);

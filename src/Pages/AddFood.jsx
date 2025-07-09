@@ -29,7 +29,7 @@ const AddFood = () => {
       purchaseCount: 0,
     };
 
-    fetch('https://restaurants-management-server.vercel.app/foods', {
+    fetch('http://localhost:5000/foods', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(foodData),

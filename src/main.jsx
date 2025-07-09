@@ -18,6 +18,7 @@ import Gallery from './Pages/Gallery.jsx';
 import MyOrders from './Pages/MyOrders.jsx';
 import AddFood from './Pages/AddFood.jsx';
 import MyFood from './Pages/MyFood.jsx';
+import UpdateFood from './Pages/UpdateFood.jsx';
 
 
 const router = createBrowserRouter([
@@ -34,7 +35,8 @@ const router = createBrowserRouter([
       {path: '/gallery', Component:Gallery},
       {path: '/myOrders', Component:MyOrders},
       {path: '/addFood', Component:AddFood},
-      {path: '/myFood', Component: MyFood}
+      {path: '/myFood', Component: MyFood},
+      {path: '/updateFood/:id', Component:UpdateFood}
     ]
   },
 ]);
