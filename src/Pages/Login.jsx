@@ -24,7 +24,7 @@ const Login = () => {
           timer: 2000,
           showConfirmButton: false,
         });
-        navigate("/"); // Redirect to home
+        navigate("/"); 
       })
       .catch((err) => setError(err.message));
   };
@@ -38,7 +38,7 @@ const Login = () => {
           timer: 2000,
           showConfirmButton: false,
         });
-        navigate("/"); // Redirect to home
+        navigate("/"); 
       })
       .catch((err) => setError(err.message));
   };

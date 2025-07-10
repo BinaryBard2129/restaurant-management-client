@@ -9,7 +9,7 @@ const UpdateFood = () => {
   const { user } = useContext(AuthContext);
   const [food, setFood] = useState(null);
 
-  // Fetch existing food data by ID
+  
   useEffect(() => {
     fetch(`http://localhost:5000/foods/${id}`)
       .then((res) => res.json())

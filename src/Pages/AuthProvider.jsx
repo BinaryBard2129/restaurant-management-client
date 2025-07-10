@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
   
   const register = (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password); 
   };
 
   const login = (email, password) => {
@@ -48,4 +48,4 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-export default AuthProvider;
+export default AuthProvider; 
