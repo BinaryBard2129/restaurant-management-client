@@ -11,7 +11,7 @@ const UpdateFood = () => {
 
   
   useEffect(() => {
-    fetch(`http://localhost:5000/foods/${id}`)
+    fetch(`https://restaurants-management-server.vercel.app/foods/${id}`)
       .then((res) => res.json())
       .then((data) => setFood(data))
       .catch((error) => {
@@ -32,7 +32,7 @@ const UpdateFood = () => {
       status: form.status.value,
     };
 
-    fetch(`http://localhost:5000/foods/${id}`, {
+    fetch(`https://restaurants-management-server.vercel.app/foods/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

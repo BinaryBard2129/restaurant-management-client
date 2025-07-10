@@ -16,7 +16,7 @@ const MyFoods = () => {
       return;
     }
 
-    fetch(`http://localhost:5000/my-foods?email=${user.email}`)
+    fetch(`https://restaurants-management-server.vercel.app/my-foods?email=${user.email}`)
       .then(res => res.json())
       .then(data => {
         setFoods(data);
@@ -33,7 +33,7 @@ const MyFoods = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/foods/${id}`, {
+        fetch(`https://restaurants-management-server.vercel.app/foods/${id}`, {
           method: 'DELETE',
         })
           .then(res => res.json())

@@ -18,7 +18,7 @@ const Purchase = () => {
       return;
     }
 
-    fetch(`http://localhost:5000/foods/${id}`)
+    fetch(`https://restaurants-management-server.vercel.app/foods/${id}`)
       .then((res) => res.json())
       .then((data) => setFood(data));
   }, [id, user, navigate]);
@@ -35,7 +35,7 @@ const Purchase = () => {
       address,
     };
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://restaurants-management-server.vercel.app/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
