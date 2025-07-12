@@ -11,7 +11,7 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               Delicious meals delivered fresh to your door. Quality food with love and care.
             </p>
-          </div>
+          </div> 
 
           
           <div>
