@@ -20,7 +20,7 @@ const TopFoods = () => {
     text?.length > maxLength ? text.slice(0, maxLength) + "…" : text;
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12">
+    <section className=" max-w-7xl mx-auto px-4 py-12">
       <h2 className="text-4xl font-extrabold mb-10 text-center text-gray-900">
         Top Selling Foods
       </h2>

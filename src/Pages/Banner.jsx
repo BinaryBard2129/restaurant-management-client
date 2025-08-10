@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const Banner = () => {
   return (
     <section
-      className="relative h-[80vh] mt-5 mx-auto rounded-2xl bg-cover bg-center flex items-center justify-center overflow-hidden"
+      className="relative h-[80vh] mt-5 mx-auto  bg-cover bg-center flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.75)), url('https://i.postimg.cc/QxNst0LF/download-6-scaled-920x518.webp')`,
       }}

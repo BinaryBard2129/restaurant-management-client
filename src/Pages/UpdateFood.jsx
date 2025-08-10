@@ -9,7 +9,6 @@ const UpdateFood = () => {
   const { user } = useContext(AuthContext);
   const [food, setFood] = useState(null);
 
-  
   useEffect(() => {
     fetch(`https://restaurants-management-server.vercel.app/foods/${id}`)
       .then((res) => res.json())
@@ -54,19 +53,26 @@ const UpdateFood = () => {
       });
   };
 
-  if (!food) return <p className="text-center mt-10">Loading food data...</p>;
+  if (!food)
+    return (
+      <p className="text-center mt-20 text-lg font-medium text-gray-600">
+        Loading food data...
+      </p>
+    );
 
   return (
-    <div className="max-w-3xl mx-auto p-8 bg-white shadow-md rounded-md mt-10">
-      <h2 className="text-3xl font-bold mb-6 text-center">Update Food</h2>
-      <form onSubmit={handleUpdate} className="space-y-4">
+    <div className="max-w-3xl mx-auto p-8 bg-white rounded-3xl shadow-lg border border-gray-200 mt-14">
+      <h2 className="text-4xl font-extrabold mb-8 text-center text-red-600">
+        Update Food
+      </h2>
+      <form onSubmit={handleUpdate} className="space-y-6">
         <input
           name="name"
           type="text"
           defaultValue={food.name}
           placeholder="Food Name"
           required
-          className="input input-bordered w-full"
+          className="input input-bordered w-full text-lg focus:ring-2 focus:ring-red-400 rounded-xl border-gray-300 transition"
         />
         <input
           name="category"
@@ -74,7 +80,7 @@ const UpdateFood = () => {
           defaultValue={food.category}
           placeholder="Category"
           required
-          className="input input-bordered w-full"
+          className="input input-bordered w-full text-lg focus:ring-2 focus:ring-red-400 rounded-xl border-gray-300 transition"
         />
         <input
           name="price"
@@ -83,7 +89,7 @@ const UpdateFood = () => {
           defaultValue={food.price}
           placeholder="Price"
           required
-          className="input input-bordered w-full"
+          className="input input-bordered w-full text-lg focus:ring-2 focus:ring-red-400 rounded-xl border-gray-300 transition"
         />
         <input
           name="image"
@@ -91,26 +97,32 @@ const UpdateFood = () => {
           defaultValue={food.image}
           placeholder="Image URL"
           required
-          className="input input-bordered w-full"
+          className="input input-bordered w-full text-lg focus:ring-2 focus:ring-red-400 rounded-xl border-gray-300 transition"
         />
         <textarea
           name="description"
           defaultValue={food.description}
           placeholder="Description"
           required
-          className="textarea textarea-bordered w-full"
+          rows={5}
+          className="textarea textarea-bordered w-full text-lg focus:ring-2 focus:ring-red-400 rounded-xl border-gray-300 transition resize-none"
         />
         <select
           name="status"
           defaultValue={food.status}
           required
-          className="select select-bordered w-full"
+          className="select select-bordered w-full text-lg focus:ring-2 focus:ring-red-400 rounded-xl border-gray-300 transition"
         >
-          <option value="">Select Status</option>
+          <option value="" disabled>
+            Select Status
+          </option>
           <option value="available">Available</option>
           <option value="unavailable">Unavailable</option>
         </select>
-        <button type="submit" className="btn btn-primary w-full">
+        <button
+          type="submit"
+          className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition duration-300"
+        >
           Update Food
         </button>
       </form>
