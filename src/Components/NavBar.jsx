@@ -1,11 +1,6 @@
-import React from 'react';
-
-import { useContext, useEffect, useRef, useState } from "react";
-
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from '../Pages/AuthProvider';
 import { Link } from 'react-router';
-
-
 
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -35,102 +30,200 @@ const NavBar = () => {
 
   const menuItems = (
     <>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/allFoods">All Foods</Link></li>
-      <li><Link to="/gallery">Gallery</Link></li>
+      <li>
+        <Link
+          to="/"
+          className="px-3 py-2 rounded hover:bg-red-100 hover:text-red-600 transition"
+        >
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/allFoods"
+          className="px-3 py-2 rounded hover:bg-red-100 hover:text-red-600 transition"
+        >
+          All Foods
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/gallery"
+          className="px-3 py-2 rounded hover:bg-red-100 hover:text-red-600 transition"
+        >
+          Gallery
+        </Link>
+      </li>
       {user && (
         <>
-          <li><Link to="/myFood">My Foods</Link></li>
-          <li><Link to="/addFood">Add Food</Link></li>
-          <li><Link to="/myOrders">My Orders</Link></li>
+          <li>
+            <Link
+              to="/myFood"
+              className="px-3 py-2 rounded hover:bg-red-100 hover:text-red-600 transition"
+            >
+              My Foods
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/addFood"
+              className="px-3 py-2 rounded hover:bg-red-100 hover:text-red-600 transition"
+            >
+              Add Food
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/myOrders"
+              className="px-3 py-2 rounded hover:bg-red-100 hover:text-red-600 transition"
+            >
+              My Orders
+            </Link>
+          </li>
         </>
       )}
       {!user && (
         <>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/register">Register</Link></li>
+          <li>
+            <Link
+              to="/login"
+              className="px-3 py-2 rounded hover:bg-red-100 hover:text-red-600 transition"
+            >
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/register"
+              className="px-3 py-2 rounded hover:bg-red-100 hover:text-red-600 transition"
+            >
+              Register
+            </Link>
+          </li>
         </>
       )}
     </>
   );
 
   return (
-    <div className="navbar  px-4 py-3 max-w-7xl mx-auto rounded-2xl shadow sticky bg-white/30 backdrop-blur-md border border-white/30 top-0 z-50">
-      <div className="flex-1">
-        <Link to="/" className="text-2xl font-bold text-red-500">
+    // Outer div takes full width, sticky top, subtle shadow, and a nice gradient background
+    <div className="fixed top-0 left-0 w-full bg-gradient-to-r from-red-400 via-red-500 to-red-600 shadow-md z-50">
+      {/* Inner container limits content width & adds horizontal padding */}
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        {/* Logo */}
+        <Link
+          to="/"
+          className="text-3xl font-extrabold text-white select-none hover:text-yellow-300 transition"
+        >
           🍽️ DineFine
         </Link>
-      </div>
 
-      
-      <div className="lg:hidden">
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="btn btn-ghost"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-              d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-          </svg>
-        </button>
-      </div>
+        {/* Desktop menu */}
+        <ul className="hidden lg:flex gap-6 text-white font-semibold text-lg">
+          {menuItems}
+        </ul>
 
-      
-      <ul className="menu menu-horizontal hidden lg:flex gap-4">
-        {menuItems}
-      </ul>
-
-      
-      {user && (
-        <div className="hidden lg:flex items-center ml-4 relative" ref={dropdownRef}>
+        {/* User avatar dropdown for desktop */}
+        {user && (
           <div
-            className="cursor-pointer"
-            onClick={() => setDropdownOpen((prev) => !prev)}
-            title={user.displayName}
+            className="hidden lg:flex items-center ml-6 relative"
+            ref={dropdownRef}
           >
-            <img
-              src={user.photoURL || "https://via.placeholder.com/40"}
-              alt="User"
-              className="w-10 h-10 rounded-full border-2 border-red-500"
-            />
-          </div>
-
-          {dropdownOpen && (
-            <div className="absolute right-0 top-12 w-40 bg-white shadow-md rounded z-50">
-              <ul className="py-2">
-                <li><Link to="/myfoods" className="block px-4 py-2 hover:bg-gray-100">My Foods</Link></li>
-                <li><Link to="/addfood" className="block px-4 py-2 hover:bg-gray-100">Add Food</Link></li>
-                <li><Link to="/myorders" className="block px-4 py-2 hover:bg-gray-100">My Orders</Link></li>
-                <li>
-                  <button
-                    onClick={handleLogout}
-                    className="w-full text-left px-4 py-2 hover:bg-red-500 hover:text-white transition rounded"
-                  >
-                    Logout
-                  </button>
-                </li>
-              </ul>
+            <div
+              className="cursor-pointer rounded-full border-2 border-yellow-300 p-[2px] hover:scale-110 transition-transform"
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              title={user.displayName}
+            >
+              <img
+                src={user.photoURL || "https://via.placeholder.com/40"}
+                alt="User"
+                className="w-10 h-10 rounded-full object-cover"
+              />
             </div>
-          )}
-        </div>
-      )}
 
-      
+            {dropdownOpen && (
+              <div className="absolute right-0 top-14 w-48 bg-white rounded-lg shadow-lg overflow-hidden">
+                <ul className="py-2 text-gray-700">
+                  <li>
+                    <Link
+                      to="/myfoods"
+                      className="block px-4 py-2 hover:bg-red-100 hover:text-red-600 transition"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      My Foods
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/addfood"
+                      className="block px-4 py-2 hover:bg-red-100 hover:text-red-600 transition"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      Add Food
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/myorders"
+                      className="block px-4 py-2 hover:bg-red-100 hover:text-red-600 transition"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      My Orders
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left px-4 py-2 hover:bg-red-500 hover:text-white transition rounded-b"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Mobile menu button */}
+        <div className="lg:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-white focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d={
+                  menuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile dropdown menu */}
       {menuOpen && (
-        <div className="absolute top-16 right-4 w-64 bg-white shadow-md rounded-lg p-4 lg:hidden z-50">
-          <ul className="space-y-2">
+        <div className="lg:hidden bg-white shadow-lg rounded-b-lg max-w-7xl mx-auto px-6 py-4">
+          <ul className="space-y-3 text-gray-800 font-semibold text-lg">
             {menuItems}
             {user && (
               <li>
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-4 py-2 hover:bg-red-500 hover:text-white rounded"
+                  className="w-full text-left px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
                 >
                   Logout
                 </button>
