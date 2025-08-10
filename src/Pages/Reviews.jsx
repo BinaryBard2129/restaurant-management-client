@@ -28,6 +28,33 @@ const reviewsData = [
     comment:
       "I loved the variety on the menu and the friendly staff. The best dining experience I've had in a while.",
   },
+  {
+    id: 4,
+    name: "James Carter",
+    avatar: "https://i.pravatar.cc/100?img=20",
+    rating: 5,
+    date: "2024-04-22",
+    comment:
+      "The food arrived hot and fresh. The customer service was very attentive. Highly satisfied!",
+  },
+  {
+    id: 5,
+    name: "Emily Nguyen",
+    avatar: "https://i.pravatar.cc/100?img=33",
+    rating: 4,
+    date: "2024-03-10",
+    comment:
+      "Really enjoyed the flavors and presentation. A little pricey but worth it for special occasions.",
+  },
+  {
+    id: 6,
+    name: "Michael Smith",
+    avatar: "https://i.pravatar.cc/100?img=45",
+    rating: 5,
+    date: "2024-02-05",
+    comment:
+      "Fast delivery and excellent quality. The dessert was my favorite part. Will order again soon!",
+  },
 ];
 
 const StarRating = ({ rating }) => {
@@ -75,7 +102,9 @@ const Reviews = () => {
               />
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">{name}</h3>
-                <p className="text-gray-500 text-sm">{new Date(date).toLocaleDateString()}</p>
+                <p className="text-gray-500 text-sm">
+                  {new Date(date).toLocaleDateString()}
+                </p>
               </div>
             </div>
 
