@@ -34,7 +34,7 @@ const Delivery = () => {
         />
       </div>
 
-      {/* Add fade-in animation CSS */}
+      
       <style jsx>{`
         @keyframes fadeIn {
           from {
