@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import Swal from 'sweetalert2';
 import { AuthContext } from './AuthProvider';
-import { motion } from 'framer-motion'; 
+import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router';
 
 const Login = () => {
@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     setError("");
     const form = e.target;
-    const email = form.email.value;
+    const email = form.email.value.trim();
     const password = form.password.value;
 
     login(email, password)
@@ -24,7 +24,7 @@ const Login = () => {
           timer: 2000,
           showConfirmButton: false,
         });
-        navigate("/"); 
+        navigate("/");
       })
       .catch((err) => setError(err.message));
   };
@@ -38,62 +38,79 @@ const Login = () => {
           timer: 2000,
           showConfirmButton: false,
         });
-        navigate("/"); 
+        navigate("/");
       })
       .catch((err) => setError(err.message));
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200 px-4">
-      <div className="hero-content flex-col lg:flex-col justify-center items-center w-full">
-        <div className="text-center mb-6">
-          <h1 className="text-4xl lg:text-5xl font-bold">Login</h1>
-        </div>
-        <div className="card w-full max-w-md lg:w-96 shadow-2xl bg-base-100">
-          <form onSubmit={handleLogin} className="card-body">
-            <div className="form-control">
-              <label className="label">Email</label>
-              <input
-                name="email"
-                type="email"
-                placeholder="email"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">Password</label>
-              <input
-                name="password"
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
-            <div className="form-control mt-4">
-              <button type="submit" className="btn btn-primary">
-                Login
-              </button>
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleGoogle}
-              type="button"
-              className="btn btn-outline mt-2"
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-100 via-red-50 to-white px-6 py-12">
+      <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-10">
+        <h1 className="text-4xl font-extrabold text-red-600 mb-8 text-center tracking-wide">
+          Login
+        </h1>
+        <form onSubmit={handleLogin} className="space-y-6">
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-gray-700 font-semibold mb-2"
             >
-              Login with Google
-            </motion.button>
-            <p className="text-sm mt-2 text-center">
-              Don't have an account?{" "}
-              <Link to="/register" className="text-blue-600">
-                Register
-              </Link>
-            </p>
-          </form>
-        </div>
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              className="input input-bordered w-full rounded-xl border-gray-300 focus:ring-2 focus:ring-red-400 focus:outline-none transition"
+              required
+              autoComplete="email"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-gray-700 font-semibold mb-2"
+            >
+              Password
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+              className="input input-bordered w-full rounded-xl border-gray-300 focus:ring-2 focus:ring-red-400 focus:outline-none transition"
+              required
+              autoComplete="current-password"
+            />
+          </div>
+          {error && (
+            <p className="text-red-600 text-sm mt-1 font-medium select-none">{error}</p>
+          )}
+          <button
+            type="submit"
+            className="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl shadow-lg transition duration-300 focus:outline-none focus:ring-4 focus:ring-red-300"
+          >
+            Login
+          </button>
+        </form>
+
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={handleGoogle}
+          type="button"
+          className="w-full mt-6 py-3 border-2 border-red-600 text-red-600 rounded-xl font-semibold hover:bg-red-50 shadow-sm transition duration-300 focus:outline-none focus:ring-4 focus:ring-red-200"
+        >
+          Login with Google
+        </motion.button>
+
+        <p className="mt-6 text-center text-gray-700">
+          Don't have an account?{" "}
+          <Link to="/register" className="text-red-600 font-semibold hover:underline">
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );
