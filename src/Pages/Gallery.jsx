@@ -20,7 +20,7 @@ const Gallery = () => {
   const [index, setIndex] = useState(-1);
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-12">
+    <section className="max-w-6xl mx-auto mt-12 px-4 py-12">
       <h2 className="text-4xl font-bold text-center mb-10 text-yellow-700">Our Gallery</h2>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">

@@ -19,12 +19,14 @@ import MyOrders from './Pages/MyOrders.jsx';
 import AddFood from './Pages/AddFood.jsx';
 import MyFood from './Pages/MyFood.jsx';
 import UpdateFood from './Pages/UpdateFood.jsx';
+import NotFound404 from './Pages/NotFound404.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component : MainLayout,
+    errorElement: <NotFound404></NotFound404>,
     children : [
       {path: '/', Component: Home },
       {path:'/login', Component: Login},

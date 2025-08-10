@@ -59,7 +59,7 @@ const Purchase = () => {
     );
 
   return (
-    <div className="max-w-xl mx-auto p-8 bg-white rounded-3xl shadow-lg border border-gray-200 mt-12">
+    <div className="max-w-xl mx-auto p-8 bg-white rounded-3xl shadow-lg border border-gray-200 pt-24">
       <h2 className="text-3xl font-extrabold mb-8 text-red-600 text-center">
         Purchase: {food.name}
       </h2>
