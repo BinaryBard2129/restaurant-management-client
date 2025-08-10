@@ -5,6 +5,7 @@ const AllFoods = () => {
   const [foods, setFoods] = useState([]);
   const [filteredFoods, setFilteredFoods] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortOrder, setSortOrder] = useState(""); // "", "asc", "desc"
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -23,54 +24,75 @@ const AllFoods = () => {
   }, []);
 
   useEffect(() => {
-    if (!searchTerm) {
-      setFilteredFoods(foods);
-      return;
+    let filtered = foods;
+
+    // Filter by search term
+    if (searchTerm) {
+      filtered = filtered.filter((food) =>
+        (food.name || "").toLowerCase().includes(searchTerm.toLowerCase())
+      );
     }
-    const filtered = foods.filter((food) =>
-      (food.name || "").toLowerCase().includes(searchTerm.toLowerCase())
-    );
+
+    // Sort filtered results by price
+    if (sortOrder === "asc") {
+      filtered = filtered.slice().sort((a, b) => a.price - b.price);
+    } else if (sortOrder === "desc") {
+      filtered = filtered.slice().sort((a, b) => b.price - a.price);
+    }
+
     setFilteredFoods(filtered);
-  }, [searchTerm, foods]);
+  }, [searchTerm, sortOrder, foods]);
 
   // Utility to truncate text
   const truncate = (text, maxLength = 110) =>
     text?.length > maxLength ? text.slice(0, maxLength) + "…" : text;
 
-  if (loading) return <p className="text-center mt-10">Loading foods...</p>;
+  if (loading)
+    return <p className="text-center mt-10">Loading foods...</p>;
 
   return (
-    <div className="max-w-7xl px-4 py-8  mx-auto">
-      <h2 className="text-4xl font-extrabold mb-10 text-center text-gray-900">
+    <div className="max-w-7xl px-4 py-8 mx-auto">
+      <h2 className="text-4xl font-extrabold mb-8 text-center text-gray-900">
         All Foods
       </h2>
 
-      <div className="mb-8 max-w-md mx-auto">
+      {/* Search and Sort Controls */}
+      <div className="flex flex-col md:flex-row items-center justify-between max-w-md mx-auto md:max-w-full mb-10 gap-4">
         <input
           type="text"
           placeholder="Search foods by name..."
-          className="input input-bordered w-full rounded-lg border-gray-300 focus:border-red-600 focus:ring-red-300 focus:ring-2 transition"
+          className="input input-bordered w-full md:max-w-xs rounded-lg border-gray-300 focus:border-red-600 focus:ring-red-300 focus:ring-2 transition"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           aria-label="Search foods by name"
         />
+
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+          className="select select-bordered w-full md:max-w-xs rounded-lg border-gray-300 focus:border-red-600 focus:ring-red-300 focus:ring-2 transition"
+          aria-label="Sort foods by price"
+        >
+          <option value="">Sort by price</option>
+          <option value="asc">Price: Low to High</option>
+          <option value="desc">Price: High to Low</option>
+        </select>
       </div>
 
+      {/* Food Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => (
             <div
               key={food._id}
-              onClick={() => navigate(`/foods/${food._id}`)}
+              onClick={() => navigate(`/singleFood/${food._id}`)}
               className="flex flex-col bg-white rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
-              style={{ height: "430px" }} // uniform height
+              style={{ height: "460px" }} // Uniform fixed height for all cards
               role="group"
               tabIndex={0}
-              aria-label={`Food item: ${food.name}, price $${food.price.toFixed(
-                2
-              )}`}
+              aria-label={`Food item: ${food.name}, price $${food.price.toFixed(2)}`}
               onKeyPress={(e) => {
-                if (e.key === "Enter") navigate(`/foods/${food._id}`);
+                if (e.key === "Enter") navigate(`/singleFood/${food._id}`);
               }}
             >
               <div className="h-48 w-full overflow-hidden rounded-t-xl">
